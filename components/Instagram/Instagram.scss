@@ -1,0 +1,175 @@
+.ig {
+	border: 1px solid $white;
+	overflow-y: auto;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.loading {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		animation: spin 6s linear infinite;
+	}
+
+	&__profile {
+		padding: 10px;
+
+		&__header {
+			&__username {
+				margin-top: 10px;
+				margin-bottom: 20px;
+				text-align: center;
+				font-size: 18px;
+			}
+
+			&__content {
+				display: flex;
+				align-items: center;
+
+				&__image {
+					margin: 4px;
+					flex-basis: 112px;
+					border: 1px solid $black;
+					border-radius: 50%;
+					min-width: 94px;
+					min-height: 94px;
+					max-height: 94px;
+					max-width: 94px;
+
+					img {
+						min-width: 94px;
+						min-height: 94px;
+						max-height: 94px;
+						max-width: 94px;
+						clip-path: circle(50% at 50% 50%);
+						background-size: cover;
+						background-repeat: no-repeat;
+					}
+
+					i {
+						position: relative;
+						transform: translate(75px, -30px);
+						border: 1px solid $white;
+						background: $blue;
+						border-radius: 50%;
+						color: $white;
+						font-size: 20px;
+						padding: 2px;
+					}
+				}
+
+				&__right {
+					width: 100%;
+
+					&__prestige {
+						flex: 1;
+						display: flex;
+						align-items: center;
+						justify-content: space-evenly;
+
+						div {
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: center;
+							margin: 5px;
+
+							.numbers {
+								font-weight: bold;
+							}
+						}
+					}
+
+					&__goto {
+						display: flex;
+						align-items: center;
+						padding: 10px 10%;
+
+						a {
+							width: 100%;
+							height: 100%;
+						}
+
+						button {
+							width: inherit;
+							height: inherit;
+							background: lighten($color: $blue, $amount: 0.8);
+							color: $white;
+							font-weight: bold;
+							border: 0;
+							outline: none;
+							border-radius: 5px;
+							padding: 5px 10px;
+							cursor: pointer;
+
+							&:hover {
+								background: $black;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&__description {
+			margin-top: 10px;
+			line-height: 1.75;
+
+			&__nickname {
+				font-weight: bold;
+				font-size: 1rem;
+			}
+
+			&__bio {
+				line-height: 1.5;
+				white-space: pre-wrap;
+				font-size: 0.95rem;
+			}
+
+			&__web {
+				color: $blue;
+				font-weight: bold;
+				cursor: pointer;
+			}
+		}
+	}
+
+	&__timeline {
+		display: flex;
+		flex-direction: column;
+
+		&__container {
+			display: grid;
+			grid-template-columns: repeat(3, 33.33%);
+
+			&__square {
+				background: $red;
+				height: 33.33vw;
+				min-width: 128px;
+				margin: 1px;
+
+				img {
+					height: 100%;
+					width: 100%;
+					background-size: contain;
+					background-clip: border-box;
+					background-position: center;
+					background-origin: center;
+					background-repeat: no-repeat;
+				}
+			}
+		}
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
